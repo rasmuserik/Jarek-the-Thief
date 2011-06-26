@@ -9,6 +9,6 @@ storyLine= {
         text: "You decide to wait for Thomas, you order another beer and prepare to wait a little longer for your friend. A cloacked figutre steps into the room you can tell it is a woman, and your trained eyes tell you that she is armed. probably handcrossbow and a rapier you are not sure, but here cape is unneceasarry wide at the shoulders. As she turns towards the bar a lock of red hair spills out from under the cloak, there sound of the other patrons conversations and laughter makes her words inaudible but you are able to read her lips as she asks for Thomas... As you are about to decide what to do, Thomas stumbles through the door, blood spilling from a wound in his gut. What do you do?"
     },
     lookForThomas: {
-        text: "Looking for Thomas: You step out into the foggy clouded night, the moon only partially reveals itself through the thick mist and there is a chill in the air. The streets are all but empty, you make your way towards his flat two blocks away. Outside his apartment you hear noices of struggle coming from his apartment. Do you kick in the door, or climb the building to look through the window?&apos;"
+        text: "Looking for Thomas: You step out into the foggy clouded night, the moon only partially reveals itself through the thick mist and there is a chill in the air. The streets are all but empty, you make your way towards his flat two blocks away. Outside his apartment you hear noices of struggle coming from his apartment. Do you kick in the door, or climb the building to look through the window?"
     }
 }
