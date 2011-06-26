@@ -4,7 +4,8 @@
         w = window.innerWidth,
         h = window.innerHeight,
         storyLine = {},
-        currentScreen = "start";
+        currentScreen = "start",
+        currentImage;
 
     function init() {
         var rotate = false,
@@ -47,11 +48,42 @@
 
     function show(screenName) {
         var screen = storyLine[screenName];
-        var img = new Image();
-        img.onload = function() {
-            ctx.drawImage(img, 0, 0, w, h);
+
+        currentImage = new Image();
+        currentImage.onload = function() {
+            ctx.drawImage(currentImage, 0, 0, w, h);
+            setTimeout(textShow(screen.text), 1000);
         }
-        img.src = "images/" + screenName + ".jpg";
+        currentImage.src = "images/" + screenName + ".jpg";
+    }
+
+    function textShow(text) {
+        text = text.split(" ");
+        var xmin = w/12,
+            xmax = w-xmin,
+            lineheight = 12,
+            wordspace = 5,
+            x = xmin,
+            y = xmin,
+            textpos = 0;
+
+        function showWord() {
+            var word = text[textpos];
+            var wordlength = ctx.measureText(word).width + wordspace;
+
+            if(wordlength + x > xmax) {
+                x = xmin;
+                y += lineheight;
+            }
+
+            ctx.fillText(word, x, y);
+            x += wordlength;
+
+            if(++textpos < text.length) {
+                setTimeout(showWord, Math.random() * 100);
+            }
+        }
+        showWord();
     }
 
     function handleTouch(x,y) {
@@ -59,10 +91,11 @@
     }
 
     engine.story = function(story) {
+        storyLine = story;
         init();
         show("start");
-        storyLine = story;
         console.log(story);
+        console.log(ctx.measureText("foo bar baz"));
     }
     window.engine = engine;
 }(window.engine || {}, window))
