@@ -4,8 +4,12 @@
         w = window.innerWidth,
         h = window.innerHeight,
         storyLine = {},
+        lineheight,
+        wordspace,
         currentScreen = "start",
-        currentImage;
+        currentImage,
+        showWordTimeout,
+        screen;
 
     function init() {
         var rotate = false,
@@ -44,10 +48,12 @@
             }
             handleTouch(x,y);
         }
+        lineheight = 0| (h/15);
+        wordspace = 0| (lineheight*.4);
     }
 
     function show(screenName) {
-        var screen = storyLine[screenName];
+        screen = storyLine[screenName];
 
         currentImage = new Image();
         currentImage.onload = function() {
@@ -61,33 +67,60 @@
         text = text.split(" ");
         var xmin = w/12,
             xmax = w-xmin,
-            lineheight = 12,
-            wordspace = 5,
             x = xmin,
             y = xmin,
             textpos = 0;
+        ctx.font = (0|(.9*lineheight)) + "px sans-serif";
+        console.log(ctx.font);
 
         function showWord() {
             var word = text[textpos];
             var wordlength = ctx.measureText(word).width + wordspace;
 
+            ctx.fillStyle = "#fff";
+
             if(wordlength + x > xmax) {
                 x = xmin;
                 y += lineheight;
+                ctx.fillRect(x-wordspace, y - lineheight + 2, wordspace, lineheight);
             }
 
+            ctx.fillRect(x, y - lineheight + 4, wordlength, lineheight);
+            ctx.fillStyle = "#000";
             ctx.fillText(word, x, y);
             x += wordlength;
 
             if(++textpos < text.length) {
-                setTimeout(showWord, Math.random() * 100);
+                showWordTimeout = setTimeout(showWord, Math.random() * 200);
             }
         }
         showWord();
+
+        nextFn = actions;
+    }
+
+    function actions() {
+        clearTimeout(showWordTimeout);
+        ctx.drawImage(currentImage, 0, 0, w, h);
+        console.log(screen);
+        var next = screen.next;
+        var desc = next[0];
+        ctx.fillText(desc, wordspace, h - 4);
+        for(var i = 1; i < next.length; ++i) {
+            var x = next[i][0],
+                y = next[i][1],
+                label = next[i][2];
+            ctx.fillText(label, w*x, h*y);
+        }
+
+        nextFn = clickButton;
+
+    }
+    function clickButton(x,y) {
     }
 
     function handleTouch(x,y) {
-        alert("(" + x + ", " + y + ")");
+        nextFn(x,y);
     }
 
     engine.story = function(story) {
