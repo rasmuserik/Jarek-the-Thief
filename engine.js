@@ -110,12 +110,13 @@
             var x = next[i][0],
                 y = next[i][1],
                 label = next[i][2];
-            ctx.fillText(label, w*x, h*y);
+            console.log(ctx.measureText(label).width);
+            ctx.fillText(label, w*x - ctx.measureText(label).width / 2, h*y - lineheight / 2);
         }
 
         nextFn = clickButton;
-
     }
+
     function clickButton(x,y) {
     }
 
