@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Sample app</title>
-    <style></style>
+    <style>canvas{position:absolute;left:0;top:0}</style>
     <meta name="MobileOptimized" content="320"/>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,45 +14,7 @@
     <link rel="stylesheet" type="text/css" href="generated/style.css">
 </head>
 <body>
-
-<div id="screen">
-    Splash... this is shown while loading...
-</div>
-<script src="scripts/jquery-1.6.1.js"></script>
-<script src="scripts/phonegap.0.9.5.js"></script>
-<script src="scripts/game.js"></script>
-
-<div id="game">
-    <div id="start">
-        <img src="images/someimg.png" class="topright"><div style="height:54px"></div>
-        <div class="stdtext">
-            <div>Første skærmbillede, du befinder dig, blah blah blah</div>
-            <div>Vil du gøre A</div>
-        </div>
-        <div class="button1" onclick="game.go('screenA')">
-            ja, gør A
-        </div>
-        <div class="button0" onclick="game.go('somethingB')">
-           nej, gør B i stedet
-        </div>
-    </div>
-
-    <div id="screenA">
-        <div class="stdtext">
-            <div>Du har valgt a, det går ikke helt, måske der er andre muligheder...</div>
-        </div>
-        <div class="button0" onclick="game.go('somethingB')">
-           ok, så hop til B
-        </div>
-    </div>
-
-    <div id="somethingB">
-        <div clsss=stdtext>
-            <div>Game done.</div>
-        </div>
-        <div class="button0" onclick="game.go('start')">
-            restart game...
-        </div>
-    </div>
-</div>
+<canvas id="canvas">
+<script src="engine.js"></script>
+<script src="story.js"></script>
 </body>

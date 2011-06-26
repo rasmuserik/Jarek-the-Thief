@@ -1,4 +1,4 @@
-storyLine({ 
+engine.story({ 
     start: {
         text: "You are the thief Jarek, after a successfull burglery in upper Everran you are seated in a tavern waiting for your good friend Thomas who has asked you to meet him, his letter stated that it was urgent. The banter in the bar is boring and you find yourself having waited for an hour without him showing. What will you do. Wait or go look for him?",
         next: ["Wait or go look for him?",
