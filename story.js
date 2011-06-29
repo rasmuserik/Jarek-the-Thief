@@ -11,7 +11,21 @@ engine.story({
         [.3, .3, "Rush to Thomas aid", "rushToAid"],
         [.6, .8, "Wait and watch", "waitAndWatch"]]
     },
-    lookForThomas: {
+    lookForThomasNOPIC: {
         text: "Looking for Thomas: You step out into the foggy clouded night, the moon only partially reveals itself through the thick mist and there is a chill in the air. The streets are all but empty, you make your way towards his flat two blocks away. Outside his apartment you hear noices of struggle coming from his apartment. Do you kick in the door, or climb the building to look through the window?"
     }
+},
+    waitAndWatchNOPIC: {
+        text: "Several of the bar partrons and the bartender rush to aid Thomas and everyone seems affected by the occurence including the cloacked woman who seems to rush to Thomas aid with several others only to quickly slip out the door as the rest of the patrons help out Thomas. Meanwhile Thomas is clearly in a bad way and the bar man´s help consisting of shaking and shouting does not seem to help.",
+        next: ["What do you do?",
+        [.3, .3, "Aid Thomas", "aidThomasLate"],
+        [.35, .32, "Follow the Woman", "followTheWomanBar"]]
+    },
+    aidThomasLateNOPIC: {
+        text: "Several of the bar partrons and the bartender rush to aid Thomas and everyone seems affected by the occurence including the cloacked woman who seems to rush to Thomas aid with several others only to quickly slip out the door as the rest of the patrons help out Thomas. Meanwhile Thomas is clearly in a bad way and the bar man´s help consisting of shaking and shouting does not seem to help.",
+        next: ["What do you do?",
+        [.3, .3, "Aid Thomas", "aidThomasSlow"],
+        [.35, .32, "Follow the Woman", "followTheWomanBar"]]
+    },
+
 });
