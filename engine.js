@@ -52,7 +52,7 @@
         wordspace = 0| (lineheight*.4);
     }
 
-    function show(screenName) {
+    var show = engine.show = function(screenName) {
         screen = storyLine[screenName];
 
         currentImage = new Image();
