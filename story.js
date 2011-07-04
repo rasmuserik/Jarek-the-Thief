@@ -2,7 +2,7 @@ engine.story({
     startBar: {
         text: "You are the thief Jarek, after a series of failed burgleries and heists in upper Everran you are seated in The Grimey Tavern waiting for your good friend Thomas who has asked you to meet him, his letter stated that it was urgent. The banter in the bar is boring and you find yourself having waited for an hour without him showing. What will you do. Wait or go look for him?",
         next: ["Wait or go look for him?",
-            [.35, .32, "Go look for him", "lookForThomasStreetNOPIC"],
+            [.35, .32, "Go look for him", "lookForThomasStreet"],
             [.7, .4, "Wait", "waitForThomasBar"]]
     },
     waitForThomasBar: {
