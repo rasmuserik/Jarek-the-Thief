@@ -32,7 +32,7 @@ engine.story({
     lookForThomasStreet: {
         text: "You step out into the foggy clouded night, the moon only partially reveals itself through the thick mist and there is a chill in the air. The streets are all but empty, you make your way towards his flat two blocks away."
  next: ["",
-        ["Aid Thomas", "aidThomasSlowBar"]]           
+        [.1, .1, "", "aidThomasSlowBar"]]           
     },    
 frontOfApartmentNOPIC: {
         text: "Outside his apartment you hear noices coming from his apartment, someone is clearly fighting in there, you can see patch of the rough wall that you will be able to scale and get on to Thomas terrasse, the door in front of you has beens kicked open. Do you go through the front door or climb the building to look through the terrasse door?",
