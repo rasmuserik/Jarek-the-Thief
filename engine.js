@@ -6,10 +6,9 @@
         storyLine = {},
         lineheight,
         wordspace,
-        currentScreen = "start",
         currentImage,
         showWordTimeout,
-        screen;
+        screen, defaultPage;
 
     function init() {
         var rotate = false,
@@ -32,7 +31,9 @@
         } else {
             canvas.addEventListener('mousedown', handleEvent);
         }
+
         function handleEvent(e) {
+            console.log("handleEvent", e);
             var y, x;
             if (e.touches) {
                     y = e.touches[0].clientY;
@@ -54,6 +55,11 @@
 
     var show = engine.show = function(screenName) {
         screen = storyLine[screenName];
+        console.log("show", screenName, screen);
+        if(!screen) {
+            alert('Internal error: "' + screenName + '" does not exist.');
+            return show(defaultPage);
+        }
 
         currentImage = new Image();
         currentImage.onload = function() {
@@ -61,6 +67,10 @@
             setTimeout(textShow(screen.text), 1000);
         }
         currentImage.src = "images/" + screenName + ".jpg";
+        currentImage.onerror = function() {
+            alert('Internal error: could not load "' +currentImage.src + '"');
+            return show(defaultPage);
+        }
     }
 
     function textShow(text) {
@@ -71,7 +81,7 @@
             y = xmin,
             textpos = 0;
         ctx.font = (0|(.9*lineheight)) + "px sans-serif";
-        console.log(ctx.font);
+        console.log("font", ctx.font);
 
         function showWord() {
             var word = text[textpos];
@@ -102,7 +112,7 @@
     function actions() {
         clearTimeout(showWordTimeout);
         ctx.drawImage(currentImage, 0, 0, w, h);
-        console.log(screen);
+        console.log("actions", screen);
         var next = screen.next;
         var desc = next[0];
         ctx.fillText(desc, wordspace, h - 4);
@@ -140,13 +150,13 @@
         nextFn(x,y);
     }
 
-    engine.story = function(story) {
-        console.log(story);
+    engine.story = function(story, start) {
+        console.log("story", story);
         storyLine = story;
         init();
-        show("startBar");
+        defaultPage = start || "start";
+        show(defaultPage);
         console.log(story);
-        console.log(ctx.measureText("foo bar baz"));
     }
     window.engine = engine;
 }(window.engine || {}, window))
