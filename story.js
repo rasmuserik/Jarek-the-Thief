@@ -20,7 +20,7 @@ engine.story({
     waitAndWatchBar: {
         text: "Several of the bar partrons and the bartender rush to aid Thomas and everyone seems affected by the occurence including the cloacked woman who seems to rush to Thomas aid with several others only to quickly slip out the door as the rest of the patrons help out Thomas. Meanwhile Thomas is clearly in a bad way and the bar man´s help consisting of shaking and shouting does not seem to help.",
         next: ["What do you do?",
-        [.3, .5, "Aid Thomas", "aidThomasSlowBar"],
+        [.4, .8, "Aid Thomas", "aidThomasSlowBar"],
         [.35, .32, "Follow the Woman", "followTheWomanStreetNOPIC"]]
     },
     aidThomasSlowBar: {
