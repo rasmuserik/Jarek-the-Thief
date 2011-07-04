@@ -26,7 +26,7 @@ engine.story({
     aidThomasSlowBar: {
         text: "You quickly rip the sleves of Thomas shirt and apply dressings to his wounds, you manage to stop the bleeding, but Thomas is in need of immediate medical attention. Thomas needs a doctor fast, but if you take him there, tracking the woman will become impossible.",
         next: ["What do you do?",
-        [.3, .3, "Take Thomas to a Doctor", "thomasToDoctorNOPIC"],
+        [.6, .8, "Take Thomas to a Doctor", "thomasToDoctorNOPIC"],
         [.35, .32, "Follow the Woman", "followTheWomanBarNOPIC"]]
     },
     lookForThomasStreetNOPIC: {
