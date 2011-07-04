@@ -14,7 +14,7 @@ engine.story({
     aidThomasFastBar: {
         text: "You quickly run over to Thomas and catch him just before he falls to the ground, you lay him down on his back,  blood is spilling from his wounds and mouth he recognices you and tries to speak but slips into unconsciousness. While you quickly stop his bleeding you notice out of the corner of your eye that the woman is silently slipping out through the door. Thomas condition is stable but he needs a doctor, you can either take him personally or leave it to the barman while you follow the woman",
         next: ["What do you do?",
-        [.3, .3, "Follow the Woman' aid", "followTheWomanStreetNOPIC"],
+        [.3, .3, "Follow the Woman", "followTheWomanStreetNOPIC"],
         [.6, .8, "Take Thomas to Doctor", "thomasToDoctorNOPIC"]]
     },
     waitAndWatchBar: {
