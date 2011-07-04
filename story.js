@@ -30,6 +30,7 @@ engine.story({
         [.35, .32, "Follow the Woman", "followTheWomanBarNOPIC"]]
     },
     lookForThomasStreet: {
-        text: "Looking for Thomas: You step out into the foggy clouded night, the moon only partially reveals itself through the thick mist and there is a chill in the air. The streets are all but empty, you make your way towards his flat two blocks away. Outside his apartment you hear noices of struggle coming from his apartment. Do you kick in the door, or climb the building to look through the window?"
+        text: "You step out into the foggy clouded night, the moon only partially reveals itself through the thick mist and there is a chill in the air. The streets are all but empty, you make your way towards his flat two blocks away."
+        next: ["aidThomasSlowBar"]],
     }
 }, "startBar");
