@@ -9,7 +9,7 @@ engine.story({
         text: "You decide to wait for Thomas, you order another beer and prepare to wait a little longer for your friend. A cloacked figutre steps into the room you can tell it is a woman, and your trained eyes tell you that she is armed. probably handcrossbow and a rapier you are not sure, but here cape is unneceasarry wide at the shoulders. As she turns towards the bar a lock of red hair spills out from under the cloak, there sound of the other patrons conversations and laughter makes her words inaudible but you are able to read her lips as she asks for Thomas... As you are about to decide what to do, Thomas stumbles through the door, blood spilling from a wound in his gut. What do you do?",
         next: ["What do you do?",
         [.3, .3, "Rush to Thomas aid", "aidThomasFastBar"],
-        [.6, .8, "Wait and watch", "waitAndWatchBarNOPIC"]]
+        [.6, .8, "Wait and watch", "waitAndWatchBar"]]
     },
     aidThomasFastBar: {
         text: "You quickly run over to Thomas and catch him just before he falls to the ground, you lay him down on his back,  blood is spilling from his wounds and mouth he recognices you and tries to speak but slips into unconsciousness. While you quickly stop his bleeding you notice out of the corner of your eye that the woman is silently slipping out through the door. Thomas condition is stable but he needs a doctor, you can either take him personally or leave it to the barman while you follow the woman",
