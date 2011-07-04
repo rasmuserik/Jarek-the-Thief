@@ -118,6 +118,22 @@
     }
 
     function clickButton(x,y) {
+        x /= w;
+        y /= h;
+        console.log("clickButton", x, y);
+
+        function nextDist2(n) {
+            return (n[0] - x) * (n[0] - x) + (n[1] - y) * (n[1] - y);
+        }
+
+        var result = screen.next[1];
+        for(var i = 2; i < screen.next.length; ++i) {
+            if(nextDist2(result) > nextDist2(screen.next[i])) {
+                result = screen.next[i];
+            }
+        }
+        console.log(result[2], result[3]);
+        show(result[3]);
     }
 
     function handleTouch(x,y) {
@@ -125,9 +141,10 @@
     }
 
     engine.story = function(story) {
+        console.log(story);
         storyLine = story;
         init();
-        show("start");
+        show("startBar");
         console.log(story);
         console.log(ctx.measureText("foo bar baz"));
     }
