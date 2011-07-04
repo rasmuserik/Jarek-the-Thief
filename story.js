@@ -31,7 +31,6 @@ engine.story({
     },
     lookForThomasStreet: {
         text: "You step out into the foggy clouded night, the moon only partially reveals itself through the thick mist and there is a chill in the air. The streets are all but empty, you make your way towards his flat two blocks away." 
- next: ["What do you do?",
         next: ["What do you do?",
         [.6, .8, "Go to Thomas Apartment", "frontOfApartmentNOPIC"],
         [.35, .32, "Go to Thomas Apartment", "frontOfApartmentNOPIC"]]
