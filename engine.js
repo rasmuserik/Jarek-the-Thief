@@ -9,6 +9,8 @@
     function init() {
         w = $("#bg").width();
         h = $("#bg").height();
+        $("body").css("font-family", "sans-serif");
+        $("body").css("font-size", Math.round(Math.sqrt(h*w)/22) + "px");
 
         // handle touch and click events fast
         // TODO: compatibility
@@ -54,16 +56,21 @@
         textShow(screen.text);
     }
 
+    var wordtime;
     function textShow(text) {
         text = text.split(" ");
         var textpos = 0;
+        wordtime = 200;
+
 
         function showWord() {
             var word = text[textpos];
             $("#text").text($("#text").text() + " " + word);
 
             if(++textpos < text.length) {
-                showWordTimeout = setTimeout(showWord, Math.random() * 200);
+                showWordTimeout = setTimeout(showWord, Math.random() * wordtime);
+            } else {
+                wordtime = 0;
             }
         }
         showWord();
@@ -74,13 +81,17 @@
     function drawText(x,y,text) {
         var $text = $("<div>").text(text);
         $("#options").append($text);
-        $text.css("position", "absolute")
+        $text.css("position", "fixed")
              .css("top", (y - $text.height() / 2) + "px")
              .css("left", (x - $text.width() / 2) + "px");
     }
 
     function actions() {
         console.log("actions", screen);
+        if(wordtime > 0) {
+            wordtime = 0;
+            return undefined;
+        } 
 
         clearTimeout(showWordTimeout);
         $("#text").text("");
