@@ -98,14 +98,18 @@
         $("#options").html();
 
         var next = screen.next;
-        $("#desc").text(next[0]);
-        for(var i = 1; i < next.length; ++i) {
-            var x = next[i][0],
-                y = next[i][1],
-                label = next[i][2];
-                drawText(x*w,y*h,label);
+        if(typeof next === 'string') {
+            show(next);
+        } else {
+            $("#desc").text(next[0]);
+            for(var i = 1; i < next.length; ++i) {
+                var x = next[i][0],
+                    y = next[i][1],
+                    label = next[i][2];
+                    drawText(x*w,y*h,label);
+            }
+            nextFn = clickButton;
         }
-        nextFn = clickButton;
     }
 
     function clickButton(x,y) {
